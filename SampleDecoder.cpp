@@ -52,16 +52,15 @@ double SampleDecoder::decode(const std::vector< double >& chromosome) const {
 	// Carregando a matriz
 	int size = chromosome.size();
 	// Cria uma matriz vazia com 48 de largura x altura
-  int** mat = new int*[size];
-  for(int i = 0; i<size; i++){
-      mat[i] = new int[size];
-  }
-  for(int i = 0; i<size; i++){
-      for(int j = 0; j<size; j++){
-          mat[i][j] = 0;
-
-      }
-  }
+	int** mat = new int*[size];
+	for(int i = 0; i<size; i++){
+	    mat[i] = new int[size];
+	}
+	for(int i = 0; i<size; i++){
+	    for(int j = 0; j<size; j++){
+	        mat[i][j] = 0;
+	    }
+	}
 
   std::ifstream file("data/1-FullIns_5.txt");
   std::string   line;
@@ -84,7 +83,6 @@ double SampleDecoder::decode(const std::vector< double >& chromosome) const {
   
 	for(int i = 0; i < size; i++) {
 		rank[i] = ValueKeyPair(chromosome[i], i);
-		//myFitness += (double(i + 1) * chromosome[i]);
 		for(int j = i; j < size; j++) {
 			if(chromosome[i] > 0.5 && chromosome[j] > 0.5){
 				if(mat[i][j] == 0){
